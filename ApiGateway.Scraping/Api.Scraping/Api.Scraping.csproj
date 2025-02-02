@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos.Scraping\AccesoDatos.Scraping.csproj" />
+    <ProjectReference Include="..\Dto.Scraping\Dto.Scraping.csproj" />
+    <ProjectReference Include="..\Repositorios.Scraping\Repositorios.Scraping.csproj" />
+  </ItemGroup>
+
+</Project>

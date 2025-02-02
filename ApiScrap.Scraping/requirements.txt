@@ -1,0 +1,10 @@
+fastapi
+requests
+beautifulsoup4
+pydantic
+redis
+celery
+uvicorn
+python-multipart
+sqlalchemy
+psycopg2-binary  # Para la integración con PostgreSQL

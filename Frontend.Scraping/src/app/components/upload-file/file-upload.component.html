@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="p-4 border rounded-4 shadow-lg text-center" style="width: 350px;">
+      <h3 class="mb-3">Subir Archivo</h3>
+  
+      <!-- Mensajes de éxito y error -->
+      <div *ngIf="mensaje" class="alert alert-success">{{ mensaje }}</div>
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  
+      <!-- Input de archivo -->
+      <input type="file" class="form-control mb-3" (change)="seleccionarArchivo($event)">
+  
+      <!-- Botón de envío -->
+      <button class="btn btn-primary w-100" (click)="subirArchivo()" [disabled]="cargando">
+        <span *ngIf="!cargando">Subir Archivo</span>
+        <span *ngIf="cargando" class="spinner-border spinner-border-sm"></span>
+      </button>
+  
+      <!-- Botón de cancelar -->
+      <button class="btn btn-secondary w-100 mt-2" routerLink="/app/archivos">Cancelar</button>
+    </div>
+  </div>
+  

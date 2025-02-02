@@ -1,0 +1,65 @@
+# Ignorar logs y archivos del sistema
+*.log
+*.tmp
+*.swp
+
+# Ignorar binarios de compilación y carpetas de salida
+bin/
+obj/
+out/
+dist/
+build/
+
+# Ignorar dependencias de Node.js y Angular
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignorar archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar archivos de configuración específicos de IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignorar archivos de Docker temporales
+docker-compose.override.yml
+
+# Mantener archivos de Docker importantes
+!docker-compose.yml
+!Dockerfile
+
+# Ignorar paquetes y resultados de tests de Python
+*.egg-info/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignorar archivos de entorno virtual de Python
+.env/
+venv/
+venv-*/
+ENV/
+env.bak/
+env/
+
+# Ignorar paquetes y resultados de tests de Angular
+coverage/
+test-results/
+.angular/cache/
+
+# Ignorar archivos de publicación de .NET
+.publish/
+.publish_profiles/
+*.publishsettings
+
+# Mantener archivos de configuración importantes para la solución
+!.env.example
+!.env.local
+!.env.production

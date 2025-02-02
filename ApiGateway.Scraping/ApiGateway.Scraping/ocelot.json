@@ -1,0 +1,91 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/scrape-file/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_scraper",
+          "Port": 8000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/scraper-file/",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Archivos",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apinotifier",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Archivos",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/usuarios",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apinotifier",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/usuarios",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/usuarios/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apinotifier",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/usuarios/login",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Archivos/DireccionesByFile/{idFile}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apinotifier",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Archivos/DireccionesByFile/{idFile}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Archivos/ContenidoByUrl/{idUrl}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apinotifier",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Archivos/ContenidoByUrl/{idUrl}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/email",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "apinotifier",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/email/send",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:9010"
+  }
+}

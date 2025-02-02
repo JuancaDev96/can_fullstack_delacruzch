@@ -1,0 +1,29 @@
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+WORKDIR /app
+EXPOSE 8080
+
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+
+# Copiar y restaurar los proyectos
+COPY ["AccesoDatos.Scraping/AccesoDatos.Scraping.csproj", "AccesoDatos.Scraping/"]
+COPY ["Dto.Scraping/Dto.Scraping.csproj", "Dto.Scraping/"]
+COPY ["Repositorios.Scraping/Repositorios.Scraping.csproj", "Repositorios.Scraping/"]
+COPY ["Api.Scraping/Api.Scraping.csproj", "Api.Scraping/"]
+RUN dotnet restore "Api.Scraping/Api.Scraping.csproj"
+
+# Copiar todo el código fuente
+COPY . .
+
+# Construir el proyecto
+WORKDIR "/src/Api.Scraping"
+RUN dotnet build "Api.Scraping.csproj" -c Release -o /app/build
+
+# Publicar el proyecto
+RUN dotnet publish "Api.Scraping.csproj" -c Release -o /app/publish
+
+# Configurar la imagen final
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "Api.Scraping.dll"]

@@ -1,0 +1,22 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full">
+      <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Registro de Usuario</h2>
+      
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="nombre" placeholder="Nombre" class="w-full p-3 border rounded-lg mb-4">
+        <div *ngIf="registerForm.controls['nombre'].invalid && registerForm.controls['nombre'].touched" class="text-red-500 text-sm">El nombre es obligatorio</div>
+  
+        <input type="email" formControlName="correo" placeholder="Correo" class="w-full p-3 border rounded-lg mb-4">
+        <div *ngIf="registerForm.controls['correo'].invalid && registerForm.controls['correo'].touched" class="text-red-500 text-sm">Correo inválido</div>
+  
+        <input type="text" formControlName="nombreUsuario" placeholder="nombreUsuario" class="w-full p-3 border rounded-lg mb-4">
+        <div *ngIf="registerForm.controls['nombreUsuario'].invalid && registerForm.controls['nombreUsuario'].touched" class="text-red-500 text-sm">El usuario es obligatorio</div>
+  
+        <input type="password" formControlName="clave" placeholder="Clave" class="w-full p-3 border rounded-lg mb-6">
+        <div *ngIf="registerForm.controls['clave'].invalid && registerForm.controls['clave'].touched" class="text-red-500 text-sm">Mínimo 6 caracteres</div>
+  
+        <button class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600">Registrarse</button>
+      </form>
+    </div>
+  </div>
+  

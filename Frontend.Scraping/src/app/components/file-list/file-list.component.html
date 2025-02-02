@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Lista de Archivos</h2>
+    <button class="btn btn-success" routerLink="/app/subir-archivo">
+      + Nuevo Archivo
+    </button>
+  </div>
+
+  <table *ngIf="!cargando && archivos.length" class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Procesado</th>
+        <th>Fecha de Registro</th>
+        <th>Usuario</th>
+        <th>Cantidad de Links</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let archivo of archivos">
+        <td>{{ archivo.nombre }}</td>
+        <td>
+          <span class="badge" [ngClass]="archivo.procesado ? 'bg-success' : 'bg-warning'">
+            {{ archivo.procesado ? 'Sí' : 'No' }}
+          </span>
+        </td>
+        <td>{{ archivo.fechaRegistro | date:'short' }}</td>
+        <td>{{ archivo.usuarioRegistro }}</td>
+        <td>{{ archivo.cantidadLinks }}</td>
+        <td>
+          <button class="btn btn-info btn-sm" [routerLink]="['/app/direcciones', archivo.id]">
+            Ver Detalle
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

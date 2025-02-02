@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <h2>Detalle del Contenido</h2>
+  
+    <!-- Mensajes de carga o error -->
+    <div *ngIf="cargando" class="alert alert-info">Cargando...</div>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  
+    <!-- Validar si hay contenido -->
+    <div *ngIf="!cargando && contenidos.length === 0" class="alert alert-warning">
+      No hay contenido disponible.
+    </div>
+  
+    <!-- Mostrar contenido filtrado -->
+    <div *ngIf="!cargando && contenidos.length > 0">
+      <div *ngFor="let contenido of contenidos" class="card mb-3">
+        <div class="card-header">
+          <h5 class="card-title">{{ contenido.etiqueta }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ contenido.contenido }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <button class="btn btn-secondary mt-3" (click)="regresar()">Volver</button>
+  </div>
+  
